@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Contact from './Contact';
+import { useState } from 'react'
+// import Index from './redux/Index'
+import Index2 from './test/Index2';
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0)
+  const handlClickT = ()=>{
+    {count > 0 && setCount(count-1)}
+     
+}
+  const handlClickC = ()=>{
+    setCount(count+1)
+}
+const changed = (e)=>{
+  setCount(e.target.value)
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+   {/* <Index/> */}
+  <h1>{count}</h1>
+  <Contact clickC={handlClickC} clickT={handlClickT} changed={changed}/>
+    <Index2/>
+
+  </>
+  
+  )
+
 }
 
-export default App;
+export default App
